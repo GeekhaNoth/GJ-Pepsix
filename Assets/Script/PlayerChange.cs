@@ -7,6 +7,12 @@ public class PlayerChange : MonoBehaviour
     private GameObject previousPlayer;
     private GameObject currentPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        players[1].GetComponent<Respawn>().enabled = false;
+        players[2].GetComponent<Respawn>().enabled = false;
+    }
     void Start()
     {
         currentPlayer = players[intCurrentPlayer];

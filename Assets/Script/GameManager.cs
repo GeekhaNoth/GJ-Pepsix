@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     private bool _isNPMactive  = false;
     private GameObject[] checkpoints;
+    public Vector3 _lastCheckpoint;
     
     [SerializeField] private Canvas _UICanvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isNPMactive)
         {
+            _lastCheckpoint = new Vector3(-5,-2,0);
             ChangeTriggerCheckPoint();
             _isNPMactive = true;
             
