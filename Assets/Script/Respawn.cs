@@ -1,17 +1,20 @@
 using System;
 using UnityEngine;
+using Vector2 = System.Numerics.Vector2;
 
 public class Respawn : MonoBehaviour
 {
-    private Transform _playerPosition;
+    private Vector3 _lastCheckpoint;
 
-   private void Start()
-   {
-      _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
-   }
-
+    private void Start()
+    {
+        _lastCheckpoint = transform.position;
+    }
+    
+    
    private void OnTriggerEnter2D(Collider2D other)
    {
-      _playerPosition.position = transform.position;
+       if (other.CompareTag("CheckPoint")) _lastCheckpoint = other.transform.position;
+       if (other.CompareTag("DeathZone")) transform.position = _lastCheckpoint;
    }
 }
