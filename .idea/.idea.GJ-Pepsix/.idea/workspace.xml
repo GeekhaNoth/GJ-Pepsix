@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2d2d2cb-ef3b-4577-8cee-36be87acc2ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.GJ-Pepsix/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GJ-Pepsix/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GJ-Pepsix/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Axel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Axel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Respawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Respawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1756808796065</updated>
-      <workItem from="1756808798052" duration="8377000" />
+      <workItem from="1756808798052" duration="14698000" />
     </task>
     <servers />
   </component>
