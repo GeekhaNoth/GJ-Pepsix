@@ -8,7 +8,8 @@ public class BasePlayerController : MonoBehaviour
     [Header("Deplacement")]
     public float moveSpeed;
     public float jumpForce;
-    private bool isGrounded;
+    private bool isGrounded = true;
+    public bool canJump = true;
 
     void Start()
     {
@@ -22,9 +23,18 @@ public class BasePlayerController : MonoBehaviour
         float translation = Input.GetAxis("Horizontal") * moveSpeed;
         transform.Translate(translation, 0, 0 * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canJump && isGrounded)
         {
             rb.AddForce(jumpDirection, ForceMode2D.Impulse);
+        }
+
+        if (translation < 0)
+        {
+            transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
+        }
+        else if (translation > 0)
+        {
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         }
     }
 }
