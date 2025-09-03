@@ -7,7 +7,6 @@
     <list default="true" id="a2d2d2cb-ef3b-4577-8cee-36be87acc2ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GJ-Pepsix/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GJ-Pepsix/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Axel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Axel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerChange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerChange.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/Respawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Respawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visuel/Terrain/Terrain (16x16) 1.png" beforeDir="false" />
@@ -304,6 +303,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Visuel/Terrain/Terrain Sliced (16x16).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuel/Terrain/Terrain Sliced (16x16).png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visuel/Terrain/Terrain1.prefab" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Visuel/Terrain/Terrain1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,6 +380,7 @@
       <option name="presentableId" value="Default" />
       <updated>1756808796065</updated>
       <workItem from="1756808798052" duration="15568000" />
+      <workItem from="1756894940769" duration="4697000" />
     </task>
     <servers />
   </component>

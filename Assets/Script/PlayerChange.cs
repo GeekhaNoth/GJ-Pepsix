@@ -46,8 +46,10 @@ public class PlayerChange : MonoBehaviour
         Camera.transform.position = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y, -10);
         previousPlayer.GetComponent<BasePlayerController>().enabled = false;
         previousPlayer.GetComponent<Respawn>().enabled = false;
+        previousPlayer.GetComponent<Respawn>()._isActive = false;
         currentPlayer.GetComponent<BasePlayerController>().enabled = true;
         currentPlayer.GetComponent<Respawn>().enabled = true;
+        currentPlayer.GetComponent<Respawn>()._isActive = true;
     }
     
 }
