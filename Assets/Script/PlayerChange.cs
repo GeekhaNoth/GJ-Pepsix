@@ -8,20 +8,20 @@ public class PlayerChange : MonoBehaviour
     private GameObject currentPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    void Awake()
+   /*void Awake()
     {
-        players[1].GetComponent<Respawn>().enabled = false;
+        players[1].GetComponent<Respawn>().enabled = false; //Pour je ne sais 
         players[2].GetComponent<Respawn>().enabled = false;
-    }
+    }*/
     void Start()
     {
-        currentPlayer = players[intCurrentPlayer];
+        currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q)) //Permet de passer de pingouin vers l'arrière du tableau
         {
             previousPlayer = players[intCurrentPlayer];
             intCurrentPlayer--;
@@ -29,7 +29,7 @@ public class PlayerChange : MonoBehaviour
             ChangePlayer();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E)) //Permet de passer de pingouin vers l'avant du tableau
         {
             previousPlayer = players[intCurrentPlayer];
             intCurrentPlayer++;
@@ -38,16 +38,16 @@ public class PlayerChange : MonoBehaviour
         }
     }
 
-    private void ChangePlayer()
+    private void ChangePlayer() //S'occupe de changer de pingouin à controler
     {
         currentPlayer = players[intCurrentPlayer];
-        GameObject Camera = previousPlayer.transform.GetChild(0).gameObject;
+        GameObject Camera = previousPlayer.transform.GetChild(0).gameObject; //Fais passer la camera qui est en enfant du pingouin controllé en enfant du futur pingouin controllé
         Camera.transform.parent = currentPlayer.transform;
-        Camera.transform.position = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y, -10);
-        previousPlayer.GetComponent<BasePlayerController>().enabled = false;
+        Camera.transform.position = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y, -10); //Repositionne la camera correctement 
+        previousPlayer.GetComponent<BasePlayerController>().enabled = false; //Desactive les scripts de l'ancien pingouin pour qu'il ne soit plus controllable ni affecté par les trigger
         previousPlayer.GetComponent<Respawn>().enabled = false;
         previousPlayer.GetComponent<Respawn>()._isActive = false;
-        currentPlayer.GetComponent<BasePlayerController>().enabled = true;
+        currentPlayer.GetComponent<BasePlayerController>().enabled = true; //Active les scripts du nouveau pingouin pour le rendre controlable et affecté par les trigget
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
     }
