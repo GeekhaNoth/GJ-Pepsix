@@ -10,10 +10,15 @@ public class GameManager : MonoBehaviour
     public Vector3 _lastCheckpoint;
     
     [SerializeField] private Canvas _UICanvas;
+
+
+    public int _nmbrOfPespi;
+    public int _nmbrPepsiUnlock = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _UICanvas.gameObject.SetActive(false); //Desactive les options par précaution
+        _nmbrOfPespi = GameObject.FindGameObjectsWithTag("Pepsi").Length;
     }
 
     // Update is called once per frame

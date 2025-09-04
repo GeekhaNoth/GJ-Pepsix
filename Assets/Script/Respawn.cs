@@ -35,6 +35,11 @@ public class Respawn : MonoBehaviour
    private void OnCollisionEnter2D(Collision2D other)
    {
        if (other.collider.CompareTag("Mobs")) transform.position = manager._lastCheckpoint; //Si le joueur rentre en collision avec un mob il respawn au dernier checkpoint
+       if (other.collider.CompareTag("Pepsi"))
+       {
+           other.gameObject.SetActive(false);
+           manager._nmbrPepsiUnlock++;
+       }
    }
    
 }
