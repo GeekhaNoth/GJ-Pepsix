@@ -15,6 +15,8 @@ public class ThrowPlayer : MonoBehaviour
     private Rigidbody2D grabbedRb;
     private bool isGrabbingSomeone = false;
     public GameObject throwHoldingSpot;
+    public KeyCode touchePourLancer = KeyCode.F;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +26,7 @@ public class ThrowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(touchePourLancer))
         {
             closestPlayer = Mathf.Infinity;
             float distancePlayer;
