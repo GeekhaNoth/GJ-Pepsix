@@ -449,7 +449,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasePlayerController
   moveSpeed: 0.003
   jumpForce: 3
+  isGrounded: 1
   canJump: 1
+  taillePingouin: 0.17
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &372861691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +471,7 @@ MonoBehaviour:
   playerHauteur: 0.1
   grabRange: 0.4
   throwHoldingSpot: {fileID: 1885842297}
+  touchePourLancer: 102
 --- !u!1 &574402550
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +824,7 @@ GameObject:
   - component: {fileID: 1644697207}
   - component: {fileID: 1644697206}
   - component: {fileID: 1644697205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
