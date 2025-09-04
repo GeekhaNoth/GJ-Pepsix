@@ -6,11 +6,13 @@ TagManager:
   tags:
   - CheckPoint
   - DeathZone
+  - HiddenZone
+  - Mobs
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
