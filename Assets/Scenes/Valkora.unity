@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 372861686}
   - component: {fileID: 372861690}
   - component: {fileID: 372861691}
+  - component: {fileID: 372861692}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -472,6 +473,20 @@ MonoBehaviour:
   grabRange: 0.4
   throwHoldingSpot: {fileID: 1885842297}
   touchePourLancer: 102
+--- !u!114 &372861692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372861685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ff04fa6d0ac87418a9a9713e12c621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooting
+  projectile: {fileID: 8738450094039283333, guid: 2e35a608c7047354d919826a345154b6, type: 3}
+  atkSpeed: 0.5
 --- !u!1 &574402550
 GameObject:
   m_ObjectHideFlags: 0
