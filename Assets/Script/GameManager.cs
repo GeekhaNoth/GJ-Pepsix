@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _UICanvas.gameObject.SetActive(false); //Desactive les options par précaution
-        FinishMenu.SetActive(false);
-        _UICanvas.gameObject.SetActive(false);
+        //_UICanvas.gameObject.SetActive(false); //Desactive les options par précaution
+        //FinishMenu.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LaunchALevel(GameObject level) //Permet d'active la prefab du level à lancer
+    public void LaunchALevel(GameObject level) //Permet d'active la prefab du level à lancer
     {
         MainMenu.gameObject.SetActive(false);
         _nmbrPepsiUnlock = 0;
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         Currentlevel = level;
     }
 
-    private void BackToMainMenu() //Permet de retourner au menu principale, à la fin d'un niveau ou en cours de jeu
+    public void BackToMainMenu() //Permet de retourner au menu principale, à la fin d'un niveau ou en cours de jeu
     {
         Currentlevel.SetActive(false);
         MainMenu.gameObject.SetActive(true);
