@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
     public void FinishLevel()
     {
         if (!_isLevel1Finished) _isLevel1Finished = true;
-        else if (!_isLevel2Finished && _isLevel1Finished) _isLevel2Finished = true;
+        else if (!_isLevel2Finished && _level2Button.GetComponent<Button>().interactable) _isLevel2Finished = true;
         //else if (_isLevel1Finished && _isLevel2Finished) ; //Si on met un truc quand le joueur fini le niveau 3
     }
 }
