@@ -15,7 +15,7 @@ public class PlayerChange : MonoBehaviour
     }*/
     void Start()
     {
-        currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
+        players = GameObject.FindGameObjectsWithTag("Player"); //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
     }
 
     // Update is called once per frame

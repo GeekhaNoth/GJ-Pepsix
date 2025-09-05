@@ -25,7 +25,11 @@ public class Respawn : MonoBehaviour
            manager._lastCheckpoint = other.transform.position;
            other.GetComponent<BoxCollider2D>().enabled = false;
        }
-       if (other.CompareTag("DeathZone")) transform.position = manager._lastCheckpoint; //Si le joueur trigger une deathzone il reapparait au dernier checkpoint
+       if (other.CompareTag("DeathZone"))
+       {
+           transform.position = manager._lastCheckpoint; //Si le joueur trigger une deathzone il reapparait au dernier checkpoint
+           manager._nmbrOfDeath++;
+       }
 
        if (other.CompareTag("HiddenZone")) //Si le joueur trigger un faux-mur ou faux-sol, fait apparaitre ou disparaitre la piece secrète en fonction de son etat
        {
@@ -36,7 +40,11 @@ public class Respawn : MonoBehaviour
 
    private void OnCollisionEnter2D(Collision2D other)
    {
-       if (other.collider.CompareTag("Mobs")) transform.position = manager._lastCheckpoint; //Si le joueur rentre en collision avec un mob il respawn au dernier checkpoint
+       if (other.collider.CompareTag("Mobs")) 
+       {
+           transform.position = manager._lastCheckpoint; //Si le joueur rentre en collision avec un mob il respawn au dernier checkpoint
+           manager._nmbrOfDeath++;
+       }
        if (other.collider.CompareTag("Pepsi"))
        {
            other.gameObject.SetActive(false);
@@ -45,6 +53,8 @@ public class Respawn : MonoBehaviour
            {
                manager.Currentlevel.SetActive(false);
                manager.FinishMenu.SetActive(true);
+               manager._textPepsi.text = manager._nmbrPepsiUnlock.ToString() + "/" + manager._nmbrOfPespi;
+               manager._textDeath.text = manager._nmbrOfDeath.ToString();
            }
        }
    }

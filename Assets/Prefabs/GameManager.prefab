@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8514069200237248727}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2722, y: -1.435, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -69,3 +69,13 @@ MonoBehaviour:
   Currentlevel: {fileID: 0}
   _nmbrOfPespi: 0
   _nmbrPepsiUnlock: 0
+  _textPepsi: {fileID: 0}
+  _textDeath: {fileID: 0}
+  _nmbrOfDeath: 0
+  _level2Image: {fileID: 0}
+  _level3Image: {fileID: 0}
+  _level2Sprite: {fileID: 0}
+  _level3Sprite: {fileID: 0}
+  _level2Button: {fileID: 0}
+  _level3Button: {fileID: 0}
+  _levelUnlockSprite: {fileID: 0}
