@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 
@@ -36,6 +37,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button _level2Button;
     [SerializeField] private Button _level3Button;
     [SerializeField] private Sprite _levelUnlockSprite;
+    
+    
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider musicSlider;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -149,5 +155,31 @@ public class GameManager : MonoBehaviour
         if (!_isLevel1Finished) _isLevel1Finished = true;
         else if (!_isLevel2Finished && _level2Button.GetComponent<Button>().interactable) _isLevel2Finished = true;
         //else if (_isLevel1Finished && _isLevel2Finished) ; //Si on met un truc quand le joueur fini le niveau 3
+    }
+    public void PlaySound(AudioSource clip)
+    {
+        clip = clip.GetComponent<AudioSource>();
+        clip.Play();
+    }
+
+    public void ChangeSfxVolume(float value)
+    {
+        mixer.SetFloat("SfxVolume", Mathf.Log10(sfxSlider.value) * 20);
+    }
+    
+    public void ChangeMusicVolume(float value)
+    {
+        mixer.SetFloat("musicVolume", Mathf.Log10(musicSlider.value) * 20);
+    }
+    
+    public void PlaySFX(AudioSource clip)
+    {
+        clip = clip.GetComponent<AudioSource>();
+        clip.Play();
+    }
+
+    public void StopSFX(AudioSource clip)
+    {
+        clip.Stop();
     }
 }
