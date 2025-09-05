@@ -9,16 +9,20 @@ public class GameManager : MonoBehaviour
     private GameObject[] checkpoints;
     public Vector3 _lastCheckpoint;
     
+    public Vector3 _firstCheckpoint;
+    
     [SerializeField] private Canvas _UICanvas;
-
-
+    public GameObject MainMenu;
+    public GameObject FinishMenu;
+    public GameObject Currentlevel;
     public int _nmbrOfPespi;
     public int _nmbrPepsiUnlock = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _UICanvas.gameObject.SetActive(false); //Desactive les options par précaution
-        _nmbrOfPespi = GameObject.FindGameObjectsWithTag("Pepsi").Length;
+        FinishMenu.SetActive(false);
+        _UICanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         if (!_isNPMactive)
         {
-            _lastCheckpoint = new Vector3(-5,-2,0); //Si activé respawn le joueur à ces coordonnées, à modifier en fonction des niveaux
+            _lastCheckpoint = _firstCheckpoint; //Si activé respawn le joueur aux coordonnées du spawn au lancement de la scène
             ChangeTriggerCheckPoint();
             _isNPMactive = true;
             
@@ -74,5 +78,25 @@ public class GameManager : MonoBehaviour
         {
             cp.GetComponent<BoxCollider2D>().enabled = _isNPMactive;
         }
+    }
+
+    private void LaunchALevel(GameObject level) //Permet d'active la prefab du level à lancer
+    {
+        MainMenu.gameObject.SetActive(false);
+        _nmbrPepsiUnlock = 0;
+        _nmbrOfPespi = 0;
+        level.SetActive(true);
+        GameObject[] total = GameObject.FindGameObjectsWithTag("Pepsi"); //Permet d'avoir le nombre de pepsi dans le niveau uniquement sans compter ceux des autres niveaux
+        foreach (GameObject pp in total)
+        {
+            if (pp.activeSelf) _nmbrOfPespi++;
+        }
+        Currentlevel = level;
+    }
+
+    private void BackToMainMenu() //Permet de retourner au menu principale, à la fin d'un niveau ou en cours de jeu
+    {
+        Currentlevel.SetActive(false);
+        MainMenu.gameObject.SetActive(true);
     }
 }

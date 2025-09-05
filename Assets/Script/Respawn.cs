@@ -11,13 +11,15 @@ public class Respawn : MonoBehaviour
     private bool _isHiddenActive = false;
     private void Start()
     {
+        if (!_isActive) return;
         manager._lastCheckpoint = transform.position; //Là où le joueur apparait au debut devient le 1er checkpoint
+        manager._firstCheckpoint = transform.position;
     }
     
     
    private void OnTriggerEnter2D(Collider2D other)
    {
-       if (!_isActive) return; //Pour une raison obscur, au demarrage du jeu ce script est actif pendant 1 frame sur les pingouin non controlés, cette ligne evite qu'il active des checkpoint ou des mort pendant la frame où ils sont actifs 
+        //Pour une raison obscur, au demarrage du jeu ce script est actif pendant 1 frame sur les pingouin non controlés, cette ligne evite qu'il active des checkpoint ou des mort pendant la frame où ils sont actifs 
        if (other.CompareTag("CheckPoint")) //Si le joueur trigger un checkpoint, l'active comme nouveau point de respawn et desactive le collider pour eviter que le joueur revienne en arrière et reactive des checkpoint precedents
        {
            manager._lastCheckpoint = other.transform.position;
@@ -39,6 +41,11 @@ public class Respawn : MonoBehaviour
        {
            other.gameObject.SetActive(false);
            manager._nmbrPepsiUnlock++;
+           if (other.gameObject.name == "FinalPepsi") //Nommer le pepsi de fin niveau ainsi pour lancer la fin du niveau
+           {
+               manager.Currentlevel.SetActive(false);
+               manager.FinishMenu.SetActive(true);
+           }
        }
    }
    
