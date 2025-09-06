@@ -16,8 +16,13 @@ TagManager:
   - Water
   - UI
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - Bullet
   - Player
+=======
+  - Player
+  - Bullet
+>>>>>>> Stashed changes
 =======
   - Player
   - Bullet
