@@ -17,20 +17,4 @@ public class Bird : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime, transform.position.z);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag("Player"))
-        {
-            if (direction)
-            {
-                transform.localScale = new Vector3(0.15f, -0.15f, 0.15f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-            }
-            direction = !direction;
-        }
-    }
 }
