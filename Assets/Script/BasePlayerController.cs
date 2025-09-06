@@ -4,10 +4,13 @@ public class BasePlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 jumpDirection;
+    private bool isFlipped = false;
+    private bool isTouchingWall;
 
     [Header("Deplacement")]
     public float moveSpeed;
     public float jumpForce;
+    private float translation;
     [SerializeField] private bool isGrounded = true;
     public bool canJump = true;
 
@@ -24,8 +27,12 @@ public class BasePlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float translation = Input.GetAxis("Horizontal") * moveSpeed;
-        transform.Translate(translation, 0, 0 * Time.deltaTime);
+        translation = Input.GetAxis("Horizontal");
+        if (!isTouchingWall)
+        {
+            rb.linearVelocity = new Vector2(translation * moveSpeed, rb.linearVelocity.y);
+        }
+
 
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, taillePingouin, groundLayer); //Verifie si le pingouin touche le sol
 
@@ -37,11 +44,13 @@ public class BasePlayerController : MonoBehaviour
 
         if (translation < 0)
         {
-            transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
+            transform.localScale = new Vector3(-0.18f, 0.18f, 0.18f);
+            isFlipped = true;
         }
         else if (translation > 0)
         {
-            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+            transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+            isFlipped = false;
         }
     }
 
@@ -50,5 +59,29 @@ public class BasePlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * taillePingouin);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            if (isFlipped && translation < 0)
+            {
+                isTouchingWall = true;
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
+            else if (!isFlipped && translation > 0)
+            {
+                isTouchingWall = true;
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
+        }
+    }
+
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("exit");
+        isTouchingWall = false;
     }
 }

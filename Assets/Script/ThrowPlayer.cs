@@ -3,8 +3,8 @@ using UnityEngine;
 public class ThrowPlayer : MonoBehaviour
 {
     [Header("Taille Joueur")]
-    public float playerLargeur;
-    public float playerHauteur;
+    //public float playerLargeur;
+    //public float playerHauteur;
     public float grabRange;
     private GameObject[] players;
     private float closestPlayer;
@@ -13,7 +13,7 @@ public class ThrowPlayer : MonoBehaviour
 
     [Header("Throw Relative")]
     private Rigidbody2D grabbedRb;
-    private bool isGrabbingSomeone = false;
+    public bool isGrabbingSomeone = false;
     public GameObject throwHoldingSpot;
     public KeyCode touchePourLancer = KeyCode.F;
     
@@ -61,6 +61,7 @@ public class ThrowPlayer : MonoBehaviour
                 grabbedRb = players[playerIndex].GetComponent<Rigidbody2D>();
                 grabbedRb.AddForce(throwDirection, ForceMode2D.Impulse);
                 this.GetComponent<BasePlayerController>().canJump = true;
+                isGrabbingSomeone = false;
             }
         }
     }

@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(atkSpeed);
         canShoot = true;
-        if (fireCancel)
+        if (fireCancel && Input.GetMouseButton(0))
         {
             fireCancel = false;
             fireCoroutine = StartCoroutine(Fire());
