@@ -8,6 +8,7 @@ TagManager:
   - DeathZone
   - HiddenZone
   - Mobs
+  - Pepsi
   layers:
   - Default
   - TransparentFX

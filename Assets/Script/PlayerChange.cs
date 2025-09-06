@@ -17,7 +17,7 @@ public class PlayerChange : MonoBehaviour
      }*/
     void Start()
     {
-        currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
+        players = GameObject.FindGameObjectsWithTag("Player"); //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
     }
 
     // Update is called once per frame
@@ -49,6 +49,7 @@ public class PlayerChange : MonoBehaviour
         previousPlayer.GetComponent<BasePlayerController>().enabled = false; //Desactive les scripts de l'ancien pingouin pour qu'il ne soit plus controllable ni affecté par les trigger
         previousPlayer.GetComponent<Respawn>().enabled = false;
         previousPlayer.GetComponent<Respawn>()._isActive = false;
+        currentPlayer.GetComponent<Respawn>()._isActive = true;
         currentPlayer.GetComponent<BasePlayerController>().enabled = true; //Active les scripts du nouveau pingouin pour le rendre controlable et affecté par les trigget
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
@@ -66,6 +67,7 @@ public class PlayerChange : MonoBehaviour
                 previousPlayer.GetComponent<Shooting>().enabled = false;
                 currentPlayer.GetComponent<ThrowPlayer>().enabled = true;
             }
+
     }
     
 }
