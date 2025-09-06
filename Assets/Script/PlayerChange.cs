@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerChange : MonoBehaviour
@@ -8,11 +10,11 @@ public class PlayerChange : MonoBehaviour
     private GameObject currentPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-   /*void Awake()
-    {
-        players[1].GetComponent<Respawn>().enabled = false; //Pour je ne sais 
-        players[2].GetComponent<Respawn>().enabled = false;
-    }*/
+    /*void Awake()
+     {
+         players[1].GetComponent<Respawn>().enabled = false; //Pour je ne sais 
+         players[2].GetComponent<Respawn>().enabled = false;
+     }*/
     void Start()
     {
         currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
@@ -21,7 +23,7 @@ public class PlayerChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) //Permet de passer de pingouin vers l'arrière du tableau
+        if (Input.GetKeyDown(KeyCode.Q) && !players[intCurrentPlayer].GetComponent<ThrowPlayer>().isGrabbingSomeone) //Permet de passer de pingouin vers l'arrière du tableau
         {
             previousPlayer = players[intCurrentPlayer];
             intCurrentPlayer--;
@@ -29,7 +31,7 @@ public class PlayerChange : MonoBehaviour
             ChangePlayer();
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) //Permet de passer de pingouin vers l'avant du tableau
+        if (Input.GetKeyDown(KeyCode.E) && !players[intCurrentPlayer].GetComponent<ThrowPlayer>().isGrabbingSomeone) //Permet de passer de pingouin vers l'avant du tableau
         {
             previousPlayer = players[intCurrentPlayer];
             intCurrentPlayer++;
@@ -50,6 +52,20 @@ public class PlayerChange : MonoBehaviour
         currentPlayer.GetComponent<BasePlayerController>().enabled = true; //Active les scripts du nouveau pingouin pour le rendre controlable et affecté par les trigget
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
+
+        if (intCurrentPlayer == 0)
+        {
+            previousPlayer.GetComponent<ThrowPlayer>().enabled = false;
+        }
+        if (intCurrentPlayer == 1)
+            {
+                currentPlayer.GetComponent<Shooting>().enabled = true;
+            }
+            else if (intCurrentPlayer == 2)
+            {
+                previousPlayer.GetComponent<Shooting>().enabled = false;
+                currentPlayer.GetComponent<ThrowPlayer>().enabled = true;
+            }
     }
     
 }
