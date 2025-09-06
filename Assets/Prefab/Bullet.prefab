@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 7551417817785143677}
   - component: {fileID: 5582903203033737180}
   - component: {fileID: 3545610812833792578}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 7
+>>>>>>> Stashed changes
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
