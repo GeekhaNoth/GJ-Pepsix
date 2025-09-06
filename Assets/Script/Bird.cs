@@ -20,7 +20,6 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collision");
         if (!other.gameObject.CompareTag("Player"))
         {
             if (direction)
