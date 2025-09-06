@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dfcfdab565ef1fc41823ea478a46a38c
+guid: 8067612d00a35d44f9c7e2eb5720c5b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9219473839190455003
-    second: pigeonfly_1_0
+      213: -1539539817211485698
+    second: pepsi_can_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pigeonfly_1_0
+      name: pepsi_can_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 16
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd234f02c9622ff70800000000000000
-      internalID: 9219473839190455003
+      spriteID: ef12a8d61b472aae0800000000000000
+      internalID: -1539539817211485698
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pigeonfly_1_0: 9219473839190455003
+      pepsi_can_0: -1539539817211485698
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
