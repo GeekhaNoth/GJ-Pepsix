@@ -10,6 +10,7 @@ TagManager:
   - Mobs
   - Pepsi
   - Ground
+  - Vide
   layers:
   - Default
   - TransparentFX

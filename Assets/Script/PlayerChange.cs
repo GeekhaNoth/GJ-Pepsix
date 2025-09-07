@@ -7,7 +7,7 @@ public class PlayerChange : MonoBehaviour
     [SerializeField] private GameObject[] players;
     private int intCurrentPlayer = 0;
     private GameObject previousPlayer;
-    private GameObject currentPlayer;
+    public GameObject currentPlayer;
     public GameObject pistolet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
