@@ -9,6 +9,7 @@ TagManager:
   - HiddenZone
   - Mobs
   - Pepsi
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -16,13 +17,8 @@ TagManager:
   - Ground
   - Water
   - UI
-<<<<<<< Updated upstream
   - Bullet
   - Player
-=======
-  - Player
-  - Bullet
->>>>>>> Stashed changes
   - 
   - 
   - 

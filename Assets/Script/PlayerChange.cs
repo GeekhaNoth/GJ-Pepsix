@@ -8,6 +8,7 @@ public class PlayerChange : MonoBehaviour
     private int intCurrentPlayer = 0;
     private GameObject previousPlayer;
     private GameObject currentPlayer;
+    public GameObject pistolet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     /*void Awake()
@@ -17,7 +18,7 @@ public class PlayerChange : MonoBehaviour
      }*/
     void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player"); //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
+        currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
     }
 
     // Update is called once per frame
@@ -47,27 +48,29 @@ public class PlayerChange : MonoBehaviour
         Camera.transform.parent = currentPlayer.transform;
         Camera.transform.position = new Vector3(currentPlayer.transform.position.x, currentPlayer.transform.position.y, -10); //Repositionne la camera correctement 
         previousPlayer.GetComponent<BasePlayerController>().enabled = false; //Desactive les scripts de l'ancien pingouin pour qu'il ne soit plus controllable ni affecté par les trigger
+        previousPlayer.GetComponent<ThrowPlayer>().enabled = false;
         previousPlayer.GetComponent<Respawn>().enabled = false;
         previousPlayer.GetComponent<Respawn>()._isActive = false;
-        currentPlayer.GetComponent<Respawn>()._isActive = true;
         currentPlayer.GetComponent<BasePlayerController>().enabled = true; //Active les scripts du nouveau pingouin pour le rendre controlable et affecté par les trigget
+        currentPlayer.GetComponent<ThrowPlayer>().enabled = true;
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
 
         if (intCurrentPlayer == 0)
         {
-            previousPlayer.GetComponent<ThrowPlayer>().enabled = false;
+            previousPlayer.GetComponent<Escalade>().enabled = false;
         }
         if (intCurrentPlayer == 1)
-            {
-                currentPlayer.GetComponent<Shooting>().enabled = true;
-            }
-            else if (intCurrentPlayer == 2)
-            {
-                previousPlayer.GetComponent<Shooting>().enabled = false;
-                currentPlayer.GetComponent<ThrowPlayer>().enabled = true;
-            }
-
+        {
+            currentPlayer.GetComponent<Shooting>().enabled = true;
+            pistolet.GetComponent<Pistolet>().enabled = true;
+        }
+        else if (intCurrentPlayer == 2)
+        {
+            previousPlayer.GetComponent<Shooting>().enabled = false;
+            pistolet.GetComponent<Pistolet>().enabled = false;
+            currentPlayer.GetComponent<Escalade>().enabled = true;
+        }
     }
     
 }
