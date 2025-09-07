@@ -356,6 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352138230}
   - component: {fileID: 352138229}
+  - component: {fileID: 352138231}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -424,6 +425,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &352138231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352138228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4fef328d487e643b585caf627771c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Finish
+  finishCanvas: {fileID: 809969141}
 --- !u!1 &386211285
 GameObject:
   m_ObjectHideFlags: 0
@@ -9216,7 +9230,7 @@ Transform:
   m_GameObject: {fileID: 854803820}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6, y: -2.17, z: 0}
+  m_LocalPosition: {x: -4.69, y: -2.17, z: 0}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11008,7 +11022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7842704204663983761, guid: f7f5fc543e33712498ca631e7d0eb684, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8323482214364525695, guid: f7f5fc543e33712498ca631e7d0eb684, type: 3}
       propertyPath: m_Pivot.x
