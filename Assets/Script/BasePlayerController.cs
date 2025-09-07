@@ -6,6 +6,7 @@ public class BasePlayerController : MonoBehaviour
     private Vector2 jumpDirection;
     private bool isFlipped = false;
     private bool isTouchingWall;
+    public float vraiTaillePingouin;
 
     [Header("Deplacement")]
     public float moveSpeed;
@@ -44,12 +45,12 @@ public class BasePlayerController : MonoBehaviour
 
         if (translation < 0)
         {
-            transform.localScale = new Vector3(-0.18f, 0.18f, 0.18f);
+            transform.localScale = new Vector3(-vraiTaillePingouin, vraiTaillePingouin, vraiTaillePingouin);
             isFlipped = true;
         }
         else if (translation > 0)
         {
-            transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+            transform.localScale = new Vector3(vraiTaillePingouin, vraiTaillePingouin, vraiTaillePingouin);
             isFlipped = false;
         }
     }
