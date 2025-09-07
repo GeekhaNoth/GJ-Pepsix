@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b0bea1eebe86db24ab2179a2040b4fb4
+guid: d16a1a28f492a1f459285a14a7d15471
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1627446507717397625
-    second: rat_1_0
+      213: -6107531863147414612
+    second: small_orange_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat_1_0
+      name: small_orange_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 247
         y: 0
-        width: 16
-        height: 15
+        width: 518
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 783fd8816062a69e0800000000000000
-      internalID: -1627446507717397625
+      spriteID: cabf7ba2120bd3ba0800000000000000
+      internalID: -6107531863147414612
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rat_1_0: -1627446507717397625
+      small_orange_0: -6107531863147414612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

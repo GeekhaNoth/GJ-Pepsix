@@ -27,11 +27,11 @@ public class Rat : MonoBehaviour
         {
             if (direction)
             {
-                transform.parent.transform.localScale = new Vector3(-0.15f, 0.15f, 0.15f);
+                transform.parent.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
             else
             {
-                transform.parent.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                transform.parent.transform.localScale = new Vector3(1f, 1f, 1f);
             }
 
             direction = !direction;

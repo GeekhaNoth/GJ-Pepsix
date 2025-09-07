@@ -20,10 +20,7 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-<<<<<<< Updated upstream
-=======
         Debug.Log("collision");
->>>>>>> Stashed changes
         if (!other.gameObject.CompareTag("Player"))
         {
             if (direction)
