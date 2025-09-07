@@ -1530,7 +1530,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   _lastCheckpoint: {x: 0, y: 0, z: 0}
+  _firstCheckpoint: {x: 0, y: 0, z: 0}
   _UICanvas: {fileID: 577373977}
+  MainMenu: {fileID: 0}
+  FinishMenu: {fileID: 0}
+  Currentlevel: {fileID: 0}
+  _nmbrOfPespi: 0
+  _nmbrPepsiUnlock: 0
+  _textPepsi: {fileID: 0}
+  _textDeath: {fileID: 0}
+  _nmbrOfDeath: 0
+  _level2Image: {fileID: 0}
+  _level3Image: {fileID: 0}
+  _level2Sprite: {fileID: 0}
+  _level3Sprite: {fileID: 0}
+  _level2Button: {fileID: 0}
+  _level3Button: {fileID: 0}
+  _levelUnlockSprite: {fileID: 0}
+  mixer: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &1066574762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,7 +1860,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141120816}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d08c8a166119024ea61eaa88f0ff7dd, type: 3}
   m_Name: 
@@ -3490,7 +3509,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064467986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d08c8a166119024ea61eaa88f0ff7dd, type: 3}
   m_Name: 
@@ -3527,7 +3546,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
