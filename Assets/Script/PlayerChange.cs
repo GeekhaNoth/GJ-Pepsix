@@ -8,6 +8,7 @@ public class PlayerChange : MonoBehaviour
     private int intCurrentPlayer = 0;
     private GameObject previousPlayer;
     private GameObject currentPlayer;
+    public GameObject pistolet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     /*void Awake()
@@ -62,10 +63,12 @@ public class PlayerChange : MonoBehaviour
         if (intCurrentPlayer == 1)
         {
             currentPlayer.GetComponent<Shooting>().enabled = true;
+            pistolet.GetComponent<Pistolet>().enabled = true;
         }
         else if (intCurrentPlayer == 2)
         {
             previousPlayer.GetComponent<Shooting>().enabled = false;
+            pistolet.GetComponent<Pistolet>().enabled = false;
             currentPlayer.GetComponent<Escalade>().enabled = true;
         }
     }
