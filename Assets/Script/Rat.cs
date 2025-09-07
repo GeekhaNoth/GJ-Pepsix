@@ -40,7 +40,7 @@ public class Rat : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Vide")) //Quand le rat entre en collision avec quelque chose qui n'est pas le joueur il s'inverse et inverse la bool pour le faire changer de direction
+        if (other.gameObject.CompareTag("Vide")) //Quand le rat entre en collision avec quelque chose qui n'est pas le joueur il s'inverse et inverse la bool pour le faire changer de direction
         {
             if (direction)
             {
