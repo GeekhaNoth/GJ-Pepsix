@@ -9,6 +9,7 @@ TagManager:
   - HiddenZone
   - Mobs
   - Pepsi
+  - Ground
   layers:
   - Default
   - TransparentFX
