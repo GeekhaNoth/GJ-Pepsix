@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public PlayerChange PC;
+
     private bool _isMenuOpen = false;
     
     private bool _isNPMactive  = false;
@@ -137,6 +138,7 @@ public class GameManager : MonoBehaviour
         }
         Currentlevel = level;
         NoRespawnMode();
+        PC.ResetPlayers();
     }
 
     public void BackToMainMenu() //Permet de retourner au menu principale, à la fin d'un niveau ou en cours de jeu

@@ -56,21 +56,29 @@ public class PlayerChange : MonoBehaviour
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
 
-        if (intCurrentPlayer == 0)
+        if (currentPlayer.name == "Pingouin Rapide")
         {
             previousPlayer.GetComponent<Escalade>().enabled = false;
         }
-        if (intCurrentPlayer == 1)
+        if (currentPlayer.name == "Pingouin Tireur")
         {
             currentPlayer.GetComponent<Shooting>().enabled = true;
             pistolet.GetComponent<Pistolet>().enabled = true;
         }
-        else if (intCurrentPlayer == 2)
+        else if (currentPlayer.name == "Pingouin Escalade")
         {
             previousPlayer.GetComponent<Shooting>().enabled = false;
             pistolet.GetComponent<Pistolet>().enabled = false;
             currentPlayer.GetComponent<Escalade>().enabled = true;
         }
+    }
+
+
+    public void ResetPlayers()
+    {
+        System.Array.Clear(players, 0, players.Length);
+        players = GameObject.FindGameObjectsWithTag("Player");
+        currentPlayer = players[intCurrentPlayer];
     }
     
 }

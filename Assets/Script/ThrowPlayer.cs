@@ -43,6 +43,7 @@ public class ThrowPlayer : MonoBehaviour
             }
             if (closestPlayer < grabRange)
             {
+                players[playerIndex].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 players[playerIndex].transform.position = throwHoldingSpot.transform.position;
                 players[playerIndex].transform.SetParent(this.transform);
                 isGrabbingSomeone = true;
@@ -57,9 +58,10 @@ public class ThrowPlayer : MonoBehaviour
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 throwDirection = (mousePos - transform.position);
 
+                players[playerIndex].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 players[playerIndex].transform.SetParent(null);
                 grabbedRb = players[playerIndex].GetComponent<Rigidbody2D>();
-                grabbedRb.AddForce(throwDirection, ForceMode2D.Impulse);
+                grabbedRb.AddForce(throwDirection * 2, ForceMode2D.Impulse);
                 this.GetComponent<BasePlayerController>().canJump = true;
                 isGrabbingSomeone = false;
             }
