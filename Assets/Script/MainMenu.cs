@@ -3,8 +3,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _mainScreen;
-    [SerializeField] private GameObject _launcher;
-    [SerializeField] private GameObject _settings;
+    public GameObject _launcher;
+    public GameObject _settings;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

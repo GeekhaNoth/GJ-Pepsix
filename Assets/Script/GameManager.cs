@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public PlayerChange PC;
-
+    public MainMenu mainMenu;
     private bool _isMenuOpen = false;
     
-    private bool _isNPMactive  = false;
+    public bool _isNPMactive  = false;
     private GameObject[] checkpoints;
     public Vector3 _lastCheckpoint;
     
@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
+    
+    [SerializeField] private GameObject Back;
+    public GameObject Camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !FinishMenu.activeSelf && !MainMenu.activeSelf) //Active ou desactive les options en fonction de ssi le joueur est en jeu ou dans les options
+        if (Input.GetKeyDown(KeyCode.Escape) && Currentlevel != null) //Active ou desactive les options en fonction de ssi le joueur est en jeu ou dans les options
         {
             if (!_isMenuOpen)
             {
@@ -89,14 +92,18 @@ public class GameManager : MonoBehaviour
     {
         _isMenuOpen = true;
         Time.timeScale = 0;
-        _UICanvas.gameObject.SetActive(true);
+        MainMenu.gameObject.SetActive(true);
+        mainMenu._settings.SetActive(true);
+        Back.SetActive(false);
     }
 
-    private void MenuExit() //Desactive les options et relance le jeu
+    public void MenuExit() //Desactive les options et relance le jeu
     {
-        _isMenuOpen = false;
-        Time.timeScale = 1;
-        _UICanvas.gameObject.SetActive(false);
+            _isMenuOpen = false;
+            Time.timeScale = 1;
+            mainMenu._settings.SetActive(false);
+            MainMenu.gameObject.SetActive(false);
+            Back.SetActive(true);
     }
 
     public void NoRespawnMode() //Active on non le mode no death allowed
@@ -126,7 +133,9 @@ public class GameManager : MonoBehaviour
 
     public void LaunchALevel(GameObject level) //Permet d'active la prefab du level à lancer
     {
+        mainMenu._launcher.SetActive(false);
         MainMenu.gameObject.SetActive(false);
+        Camera.GetComponent<CameraScript>().enabled = true;
         _nmbrPepsiUnlock = 0;
         _nmbrOfPespi = 0;
         _nmbrOfDeath = 0;
@@ -137,14 +146,16 @@ public class GameManager : MonoBehaviour
             if (pp.activeSelf) _nmbrOfPespi++;
         }
         Currentlevel = level;
-        NoRespawnMode();
         PC.ResetPlayers();
     }
 
     public void BackToMainMenu() //Permet de retourner au menu principale, à la fin d'un niveau ou en cours de jeu
     {
         Currentlevel.SetActive(false);
-        MainMenu.gameObject.SetActive(true);
+        Currentlevel = null;
+        FinishMenu.SetActive(false);
+        MainMenu.SetActive(true);
+        mainMenu._launcher.SetActive(true);
     }
 
     public void Quit()
@@ -169,7 +180,7 @@ public class GameManager : MonoBehaviour
         mixer.SetFloat("SfxVolume", Mathf.Log10(sfxSlider.value) * 20);
     }
     
-    public void ChangeMusicVolume(float value)
+    public void ChangeMusicVolume(float valuer)
     {
         mixer.SetFloat("musicVolume", Mathf.Log10(musicSlider.value) * 20);
     }

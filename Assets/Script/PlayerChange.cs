@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PlayerChange : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerChange : MonoBehaviour
      }*/
     void Start()
     {
-        currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
+        //currentPlayer = players[intCurrentPlayer]; //Met le pingoin 0 du tableau comme joueur actuel (dû à la ligne 6 du script)
     }
 
     // Update is called once per frame
@@ -51,34 +52,30 @@ public class PlayerChange : MonoBehaviour
         previousPlayer.GetComponent<ThrowPlayer>().enabled = false;
         previousPlayer.GetComponent<Respawn>().enabled = false;
         previousPlayer.GetComponent<Respawn>()._isActive = false;
+        GetPower(previousPlayer);
         currentPlayer.GetComponent<BasePlayerController>().enabled = true; //Active les scripts du nouveau pingouin pour le rendre controlable et affecté par les trigget
         currentPlayer.GetComponent<ThrowPlayer>().enabled = true;
         currentPlayer.GetComponent<Respawn>().enabled = true;
         currentPlayer.GetComponent<Respawn>()._isActive = true;
-
-        if (currentPlayer.name == "Pingouin Rapide")
-        {
-            previousPlayer.GetComponent<Escalade>().enabled = false;
-        }
-        if (currentPlayer.name == "Pingouin Tireur")
-        {
-            currentPlayer.GetComponent<Shooting>().enabled = true;
-            pistolet.GetComponent<Pistolet>().enabled = true;
-        }
-        else if (currentPlayer.name == "Pingouin Escalade")
-        {
-            previousPlayer.GetComponent<Shooting>().enabled = false;
-            pistolet.GetComponent<Pistolet>().enabled = false;
-            currentPlayer.GetComponent<Escalade>().enabled = true;
-        }
+        GetPower(currentPlayer);
     }
 
 
     public void ResetPlayers()
     {
+        intCurrentPlayer = 0;
         System.Array.Clear(players, 0, players.Length);
         players = GameObject.FindGameObjectsWithTag("Player");
         currentPlayer = players[intCurrentPlayer];
     }
-    
+
+    private void GetPower(GameObject Penguin)
+    {
+        if (Penguin.GetComponent<Escalade>() != null) Penguin.GetComponent<Escalade>().enabled = !Penguin.GetComponent<Escalade>().enabled;
+        else if (Penguin.GetComponent<Shooting>() != null)
+        {
+            Penguin.GetComponent<Shooting>().enabled = !Penguin.GetComponent<Shooting>().enabled;
+            pistolet.GetComponent<Pistolet>().enabled = !pistolet.GetComponent<Pistolet>().enabled;
+        }
+    }
 }

@@ -51,7 +51,8 @@ public class Respawn : MonoBehaviour
            manager._nmbrPepsiUnlock++;
            if (other.gameObject.name == "FinalPepsi") //Nommer le pepsi de fin niveau ainsi pour lancer la fin du niveau
            {
-               manager.Currentlevel.SetActive(false);
+               manager.FinishLevel();
+               manager.Camera.GetComponent<CameraScript>().enabled = true;
                manager.FinishMenu.SetActive(true);
                manager._textPepsi.text = manager._nmbrPepsiUnlock.ToString() + "/" + manager._nmbrOfPespi;
                manager._textDeath.text = manager._nmbrOfDeath.ToString();

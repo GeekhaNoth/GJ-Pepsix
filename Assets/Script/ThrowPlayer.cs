@@ -17,6 +17,7 @@ public class ThrowPlayer : MonoBehaviour
     public GameObject throwHoldingSpot;
     public KeyCode touchePourLancer = KeyCode.F;
     
+    private GameManager gameManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,7 +27,8 @@ public class ThrowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(touchePourLancer))
+        if (!isGrabbingSomeone && GetComponent<Shooting>() != null && GetComponent<Shooting>().enabled == false) GetComponent<Shooting>().enabled = true;
+        if (Input.GetKeyDown(touchePourLancer) && !isGrabbingSomeone)
         {
             closestPlayer = Mathf.Infinity;
             float distancePlayer;
@@ -53,13 +55,14 @@ public class ThrowPlayer : MonoBehaviour
 
         if (isGrabbingSomeone)
         {
+            if (GetComponent<Shooting>() != null) GetComponent<Shooting>().enabled = false;
             if (Input.GetMouseButtonDown(0))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3 throwDirection = (mousePos - transform.position);
 
                 players[playerIndex].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                players[playerIndex].transform.SetParent(null);
+                players[playerIndex].transform.SetParent(this.transform.parent);
                 grabbedRb = players[playerIndex].GetComponent<Rigidbody2D>();
                 grabbedRb.AddForce(throwDirection * 2, ForceMode2D.Impulse);
                 this.GetComponent<BasePlayerController>().canJump = true;
